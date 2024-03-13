@@ -19,4 +19,11 @@ class Counter:
         return f"{self.__count}"
 
     #TODO write count property
+    @property
+    def count(self):
+        return self.__count
+
     #TODO write increment method
+    def increment(self):
+        self.__count += 1
+        return self.__count
