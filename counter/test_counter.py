@@ -22,6 +22,7 @@ class TestCounter(unittest.TestCase):
         """Test that all instances share the same count"""
         c1 = Counter()
         c2 = Counter()
+        c1.increment()
         self.assertEqual(c1.count, 1)
         self.assertEqual(c2.count, 1)
 
