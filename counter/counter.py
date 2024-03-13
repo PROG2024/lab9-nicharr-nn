@@ -10,10 +10,15 @@
 """
 
 class Counter:
+    _instance = None
 
-    def __init__(self):
-        self.__count = 0
-
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super(Counter, cls).__new__(cls)
+            cls._instance.__count = 0
+        elif not hasattr(cls, 'instance'):
+            cls.instance = super().__new__(cls)
+        return cls._instance
 
     def __str__(self):
         return f"{self.__count}"
@@ -27,8 +32,3 @@ class Counter:
     def increment(self):
         self.__count += 1
         return self.__count
-
-    def __new__(cls):
-        if not hasattr(cls, 'instance'):
-            cls.instance = super().__new__(cls)
-        return cls.instance

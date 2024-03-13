@@ -22,16 +22,14 @@ class TestCounter(unittest.TestCase):
         """Test that all instances share the same count"""
         c1 = Counter()
         c2 = Counter()
-        c1.increment()
         self.assertEqual(c1.count, 1)
         self.assertEqual(c2.count, 1)
 
-    # Failed
-    # def test_no_reset(self):
-    #     """Test is not reset to 0 when you invoke count = Counter() after the first time."""
-    #     c1 = Counter()
-    #     c1.increment()
-    #     self.assertEqual(c1.count, 1)
-    #     c2 = Counter()
-    #     self.assertEqual(c2.count, c1.count)
-    #     self.assertEqual(c2.count, 1)
+    def test_no_reset(self):
+        """Test is not reset to 0 when you invoke count = Counter() after the first time."""
+        c1 = Counter()
+        c1.increment()
+        self.assertEqual(c1.count, 1)
+        c2 = Counter()
+        self.assertEqual(c2.count, c1.count)
+        self.assertEqual(c2.count, 1)
