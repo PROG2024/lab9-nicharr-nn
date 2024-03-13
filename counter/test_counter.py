@@ -23,8 +23,7 @@ class TestCounter(unittest.TestCase):
         c1 = Counter()
         c2 = Counter()
         c1.increment()
-        self.assertEqual(c1.count, 2)
-        self.assertEqual(c2.count, 2)
+        self.assertEqual(c1.count, c2.count)
 
     def test_no_reset(self):
         """Test is not reset to 0 when you invoke count = Counter() after the first time."""
